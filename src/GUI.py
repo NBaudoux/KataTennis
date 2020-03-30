@@ -9,7 +9,6 @@ from lang import *
 
 from tkinter import *
 from tkinter.messagebox import showerror, showinfo
-from button import *
 
 #   --- Local constants ---
 FONT = ('Arial', 20)
@@ -52,12 +51,11 @@ class GUI:
             self.labelNames.append(Label(self.frames[i], text=str(score[1]), font=FONT))
             self.labelNames[i].grid(row=2)
         #Score button
-        self.incrButtons.append(ImgButton(self.frames[0], "logo/add.png", lambda: self.process(0), 1.5))
-        self.incrButtons[0].pos(3,0)
-        self.incrButtons[0].hovering(self.lang["SCORE"])
-        self.incrButtons.append(ImgButton(self.frames[1], "logo/add.png", lambda: self.process(1), 1.5))
-        self.incrButtons[1].pos(3,0)
-        self.incrButtons[1].hovering(self.lang["SCORE"])
+        self.logo=PhotoImage(file="logo/add.png").subsample(15,15)
+        self.incrButtons.append(Button(self.frames[0], image=self.logo, command=lambda: self.process(0)))
+        self.incrButtons[0].grid(row=3)
+        self.incrButtons.append(Button(self.frames[1], image=self.logo, command=lambda: self.process(1)))
+        self.incrButtons[1].grid(row=3)
 
     def update(self):
         """
