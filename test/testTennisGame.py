@@ -32,13 +32,20 @@ class TestTennisGame(unittest.TestCase):
             game.getPoints(3)
 
     def test_getPoints(self):
-        #Testing scores from 0 to 30
+        #Testing scores from 0 to 30 for both players
         game.reset()
         for i in range(3):
             self.assertEqual(game.getPoints(0), (POINTS[i], NAMES[i]) )
             self.assertEqual(game.getPoints(1), (POINTS[i], NAMES[i]) )
             game.incr(0)
             game.incr(1)
+
+        #Testing scores from 0 to 40 for only one player
+        game.reset()
+        for i in range(4):
+            self.assertEqual(game.getPoints(0), (POINTS[i], NAMES[i]) )
+            self.assertEqual(game.getPoints(1), (POINTS[0], NAMES[0]) )
+            game.incr(0)
 
         #Testing score 40
         game.reset()
