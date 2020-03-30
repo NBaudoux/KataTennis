@@ -7,6 +7,7 @@ class TennisGame:
         Class constructor
         """
         self.score = [0,0]
+        self.done  = False
 
     def reset(self):
         """
@@ -61,4 +62,5 @@ class TennisGame:
             diff = localScore - otherScore;
             if(diff >= 2):
                 res = True
+                self.done = True
         return res
