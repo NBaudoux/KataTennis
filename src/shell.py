@@ -18,6 +18,7 @@ class ShellInterface:
         while(not self.game.done):
             self.displayScore()
             self.askScore()
+        input(self.lang["EXIT"])
 
     def printAligned(self, text, endText="\n"):
         """
