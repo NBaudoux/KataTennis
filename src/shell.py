@@ -1,6 +1,11 @@
+#   --- Imports ---
 from tennisGame import *
 from lang import *
 
+#   --- Local Constants ---
+TXT_WIDTH = 50
+
+#   --- Class ---
 class ShellInterface:
     def __init__ (self):
         """
@@ -9,10 +14,25 @@ class ShellInterface:
         self.game = TennisGame()
         self.lang = Lang().current
 
-        print(self.lang["WELCOME"])
+        self.printAligned(self.lang["WELCOME"])
         while(not self.game.done):
             self.displayScore()
             self.askScore()
+
+    def printAligned(self, text, endText="\n"):
+        """
+        Adding space in order to align
+        Args: (str) text     - original text
+              (str) endText  - endline text
+        """
+        res = ""
+        toBeAdded = (TXT_WIDTH - len(text)) // 2 #"Entire" division
+        for i in range(toBeAdded):
+            res += " "
+        res += text
+        for i in range(toBeAdded):
+            res += " "
+        print(res, end=endText)
 
     def displayScore(self):
         """
@@ -20,9 +40,9 @@ class ShellInterface:
         """
         score0 = self.game.getPoints(0)
         score1 = self.game.getPoints(1)
-        print(self.lang["PLAYER"]+" 1 - "+self.lang["PLAYER"]+" 2")
+        self.printAligned(self.lang["PLAYER"]+" 0 - "+self.lang["PLAYER"]+" 1")
         for i in range(2):
-            print(score0[i]+" - "+score1[i])
+            self.printAligned(score0[i]+" - "+score1[i])
 
     def askScore(self):
         """
@@ -30,11 +50,12 @@ class ShellInterface:
         """
         notCorrect = True
         while(notCorrect):
-            player = input(self.lang["WHO"]+" ")
+            self.printAligned(self.lang["WHO"]+" ", "")
+            player = input()
             if player in ["0","1"]:
                 notCorrect = False
             else:
-                print(self.lang["NOTCORR"])
+                self.printAligned(self.lang["NOTCORR"])
 
         self.process(int(player))
 
@@ -45,7 +66,10 @@ class ShellInterface:
         """
         self.game.incr(player)
         if(self.game.gameWon(player)):
-            print(self.lang["WINNER"]+" "+str(player))
+            finalText = self.lang["WINNER"]+" "
+            finalText += self.lang["PLAYER"]+" "
+            finalText += str(player)
+            self.printAligned(finalText)
 
 if __name__ == "__main__":
     ShellInterface()
