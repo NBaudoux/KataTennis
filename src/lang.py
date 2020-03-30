@@ -16,12 +16,16 @@ class Lang:
         Set of english text
         """
         lang={
+
             "EXIT"   : "Press ENTER to exit",
+            "KATATEN": "KataTennis",
             "LANGNOT": "This language is not available yet",
             "NOTCORR": "You have not entered a valid number. Enter 0 or 1.",
             "PLAYER" : "Player",
+            "SCORE"   : "Score",
             "WELCOME": "Welcome to KataTennis",
             "WHO"    : "Which player has scored (Enter 0 or 1)",
-            "WINNER" : "The winner is"
+            "WINNER" : "The winner is",
+            "WON"    : "WON"
             }
         return lang
