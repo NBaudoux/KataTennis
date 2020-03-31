@@ -27,7 +27,7 @@ class ShellInterface:
               (str) endText  - endline text
         """
         res = ""
-        toBeAdded = (TXT_WIDTH - len(text)) // 2 #"Entire" division
+        toBeAdded = (TXT_WIDTH - len(text)) // 2 #Euclidian division
         for i in range(toBeAdded):
             res += " "
         res += text

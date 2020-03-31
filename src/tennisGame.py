@@ -35,7 +35,7 @@ class TennisGame:
         res = ("", "")
         localScore = self.score[player]
         otherScore = self.score[player-1] #Score of the other player
-        if (localScore < 3 or (localScore == 3 and otherScore < 3)):
+        if (localScore < 3 or otherScore < 3):
             res = (POINTS[localScore], NAMES[localScore])
         else:
             if(otherScore < localScore):

@@ -1,14 +1,9 @@
 #   --- Imports ---
-import sys
-import os
-source = os.path.dirname(__file__) + "\guiObj"
-sys.path.append(source)
-
 from tennisGame import *
 from lang import *
 
 from tkinter import *
-from tkinter.messagebox import showerror, showinfo
+from tkinter.messagebox import showinfo
 
 #   --- Local constants ---
 FONT = ('Arial', 20)
