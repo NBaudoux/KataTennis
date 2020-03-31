@@ -67,7 +67,7 @@ class GUI:
         Args: (int) player - player identifier (0 or 1)
         """
         self.game.incr(player)
-        if(self.game.gameWon(player)):
+        if(self.game.done):
             finalText = self.lang["WINNER"]+" "
             finalText += self.lang["PLAYER"]+" "
             finalText += str(player)

@@ -14,6 +14,7 @@ class TennisGame:
         Resets scores
         """
         self.score = [0,0]
+        self.done  = False
 
     def incr(self, player):
         """
@@ -22,7 +23,11 @@ class TennisGame:
         """
         if (player not in [0,1]):
             raise IndexError("Not in range")
-        self.score[player] += 1
+        elif (not self.done):
+            self.score[player] += 1
+            self.gameWon(player)
+        else:
+            raise RuntimeError("Game is done")
 
     def getPoints(self, player):
         """

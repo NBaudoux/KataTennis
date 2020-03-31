@@ -31,6 +31,13 @@ class TestTennisGame(unittest.TestCase):
         with self.assertRaises(IndexError):
             game.getPoints(3)
 
+        #Testing "Game is done" case
+        game.reset()
+        for i in range(4):
+            game.incr(0)
+        with self.assertRaises(RuntimeError):
+            game.incr(0)
+
     def test_getPoints(self):
         #Testing scores from 0 to 30 for both players
         game.reset()
