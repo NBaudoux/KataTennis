@@ -1,3 +1,7 @@
+"""
+Graphical User Interface for tennis scoreboard
+"""
+
 #   --- Imports ---
 from tennisGame import *
 from lang import *

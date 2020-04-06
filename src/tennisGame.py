@@ -1,5 +1,11 @@
+"""
+'Back-end', handling scores and its representations using:
+* amount of points (0, 15, 30, 40, AD)
+* names of score   (love, fifteen, thirty, forty, deuce, advantage)
+"""
+
 #   --- Imports ---
-from consts import *
+from consts import * #Containing points and names
 
 class TennisGame:
     def __init__(self):
@@ -32,8 +38,10 @@ class TennisGame:
     def getPoints(self, player):
         """
         Get a player's score in terms of points
-        Args:    (int) player - player identifier (0 or 1)
-        Returns: (str) res    - points (0, 15, 30, 40, AD)
+        Args:    (int) player      - player identifier (0 or 1)
+        Returns: (str, str) res    - points (0, 15, 30, 40, AD)
+                                   - name   (love, fifteen, thirty, forty,
+                                             deuce, advantage)
         """
         if (player not in [0,1]):
             raise IndexError("Not in range")

@@ -1,3 +1,7 @@
+"""
+Command line user interface for tennis scoreboard
+"""
+
 #   --- Imports ---
 from tennisGame import *
 from lang import *

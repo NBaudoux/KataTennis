@@ -1,6 +1,10 @@
+"""
+This class makes easy to add any additional language
+"""
+
 class Lang:
     def __init__(self):
-        self.langList = {"en": self.en()}
+        self.langList = {"en": self.en()} #Add reference to new languages here
         self.switch("en")
 
     def switch(self, newLang):
@@ -27,3 +31,5 @@ class Lang:
             "WON"    : "WON"
             }
         return lang
+
+    #Additional languages may be added here
